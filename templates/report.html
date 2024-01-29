@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Financial Report</title>
+</head>
+<body>
+<h1>Financial Report</h1>
+<p>Company Name: {{ report.company_name }}</p>
+<p>Report Date: {{ report.report_date }}</p>
+<a href="{{ url_for('download', report_id=report.id) }}">Download PDF</a>
+<br>
+<div>{{ report.report_file }}</div>
+</body>
+</html>
+
+
