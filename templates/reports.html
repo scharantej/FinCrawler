@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Financial Reports</title>
+</head>
+<body>
+<h1>Financial Reports</h1>
+<form action="{{ url_for('crawling') }}" method="POST">
+<input type="submit" value="Crawl Financial Reports">
+</form>
+<br>
+{% if reports %}
+<table border="1">
+<thead>
+<tr>
+<th>Company Name</th>
+<th>Report Date</th>
+<th>Report File</th>
+</tr>
+</thead>
+<tbody>
+{% for report in reports %}
+<tr>
+<td>{{ report.company_name }}</td>
+<td>{{ report.report_date }}</td>
+<td><a href="{{ url_for('report', report_id=report.id) }}">View</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<p>No financial reports found.</p>
+{% endif %}
+</body>
+</html>
+
+
